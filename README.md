@@ -1,3 +1,8 @@
+Site Link
+==================
+- [http://bittiger-adsearch.appspot.com][7]
+
+
 endpoints-skeleton
 ==================
 
@@ -9,6 +14,7 @@ A skeleton application for Google Cloud Endpoints in Java.
 
 - [Google Cloud Endpoints][3]
 - [Google App Engine Maven plugin][4]
+
 
 
 1. Update the value of `application` in `appengine-web.xml` to the app
@@ -51,3 +57,4 @@ A skeleton application for Google Cloud Endpoints in Java.
 [4]: https://developers.google.com/appengine/docs/java/tools/maven
 [5]: https://localhost:8080/_ah/api/explorer
 [6]: https://console.developers.google.com/
+[7]: https://bittiger-adsearch.appspot.com/
