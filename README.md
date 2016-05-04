@@ -1,6 +1,6 @@
 Site Link
 ==================
-- [http://bittiger-adsearch.appspot.com][7]
+- [https://bittiger-adsearch.appspot.com][7]
 
 
 endpoints-skeleton
