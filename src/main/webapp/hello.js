@@ -71,7 +71,7 @@ function runQuery () {
 	// It takes one argument "name"
 	// On success, pass the response to sayHelloCallback()
 	
-	var request = gapi.client.helloworldendpoints.sayHelloByName({'name': queryString, 'tt': 'rest'});
+	var request = gapi.client.helloworldendpoints.sayHelloByName({'name': queryString});
 	request.execute(sayHelloCallback);
 	
 //	var request = gapi.client.helloworldendpoints.getTokens({'name': queryString});
