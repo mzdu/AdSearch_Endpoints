@@ -27,7 +27,13 @@ public class HelloWorldEndpoints {
     @ApiMethod(name = "sayHelloByName", path = "sayHelloByName",
             httpMethod = HttpMethod.GET)
 
-    public HelloClass sayHelloByName (@Named("name") String name) {
-        return new HelloClass(name);
+    public HelloClass sayHelloByName (@Named("name") String str1) {
+        return new HelloClass(str1);
+    }
+    
+    @ApiMethod(name = "getTokens", path = "getTokens",
+    		httpMethod = HttpMethod.GET)
+    public Parser getTokens (@Named("name") String str2) {
+    	return new Parser(str2);
     }
 }

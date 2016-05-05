@@ -70,15 +70,23 @@ function runQuery () {
 	// Call the sayHelloByName() function.
 	// It takes one argument "name"
 	// On success, pass the response to sayHelloCallback()
-	var request = gapi.client.helloworldendpoints.sayHelloByName({'name': queryString});
+	
+	var request = gapi.client.helloworldendpoints.sayHelloByName({'name': queryString, 'tt': 'rest'});
 	request.execute(sayHelloCallback);
+	
+//	var request = gapi.client.helloworldendpoints.getTokens({'name': queryString});
+//	request.execute(sayHelloCallback);
+	
 }
 
 // Process the JSON response
 // In this case, just show an alert dialog box
 // displaying the value of the message field in the response
 function sayHelloCallback (response) {
-	alert(response.message);	
+//	alert(response.testString);	
+//	var res = response.testString;
+	var res = response.message;
+	alert("hellojs -> " + res);	
 }
 
 
