@@ -1,4 +1,4 @@
-package com.bittiger.adsearch.helloworld;
+package com.bitTiger.searchAds.main;
 
 import com.google.api.server.spi.Constant;
 

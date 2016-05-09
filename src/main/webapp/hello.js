@@ -7,7 +7,7 @@
 
 /**
  * After the client library has loaded, this init() function is called.
- * The init() function loads the helloworldendpoints API.
+ * The init() function loads the adsearchendpoints API.
  */
 
 function init() {
@@ -21,17 +21,17 @@ function init() {
 
 	var rootpath = "//" + window.location.host + "/_ah/api";
 	
-	// Load the helloworldendpoints API
+	// Load the adsearchendpoints API
 	// If loading completes successfully, call loadCallback function
-	gapi.client.load('helloworldendpoints', 'v1', loadCallback, rootpath);
+	gapi.client.load('adsearchendpoints', 'v1', loadCallback, rootpath);
 }
 
 /*
- * When helloworldendpoints API has loaded, this callback is called.
+ * When adsearchendpoints API has loaded, this callback is called.
  * 
- * We need to wait until the helloworldendpoints API has loaded to
+ * We need to wait until the adsearchendpoints API has loaded to
  * enable the actions for the buttons in index.html,
- * because the buttons call functions in the helloworldendpoints API
+ * because the buttons call functions in the adsearchendpoints API
  */
 function loadCallback () {	
 	// Enable the button actions
@@ -52,7 +52,7 @@ function enableButtons () {
  */
 function greetGenerically () {
 	// Construct the request for the sayHello() function
-	var request = gapi.client.helloworldendpoints.sayHello();
+	var request = gapi.client.adsearchendpoints.sayHello();
 	
 	// Execute the request.
 	// On success, pass the response to sayHelloCallback()
@@ -71,10 +71,10 @@ function runQuery () {
 	// It takes one argument "name"
 	// On success, pass the response to sayHelloCallback()
 	
-	var request = gapi.client.helloworldendpoints.sayHelloByName({'name': queryString});
+	var request = gapi.client.adsearchendpoints.sayHelloByName({'name': queryString});
 	request.execute(sayHelloCallback);
 	
-//	var request = gapi.client.helloworldendpoints.getTokens({'name': queryString});
+//	var request = gapi.client.adsearchendpoints.getTokens({'name': queryString});
 //	request.execute(sayHelloCallback);
 	
 }

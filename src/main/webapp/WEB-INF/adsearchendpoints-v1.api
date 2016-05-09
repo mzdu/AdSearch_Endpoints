@@ -1,0 +1,257 @@
+{
+  "extends" : "thirdParty.api",
+  "abstract" : false,
+  "root" : "https://bittiger-adsearch.appspot.com/_ah/api",
+  "name" : "adsearchendpoints",
+  "version" : "v1",
+  "description" : "API for ads search endpoints.",
+  "defaultVersion" : false,
+  "adapter" : {
+    "bns" : "https://bittiger-adsearch.appspot.com/_ah/spi",
+    "deadline" : 65.0,
+    "type" : "lily"
+  },
+  "auth" : {
+    "allowCookieAuth" : false
+  },
+  "frontendLimits" : {
+    "unregisteredUserQps" : -1,
+    "unregisteredQps" : -1,
+    "unregisteredDaily" : -1,
+    "rules" : [ ]
+  },
+  "cacheControl" : {
+    "type" : "no-cache",
+    "maxAge" : 0
+  },
+  "methods" : {
+    "adsearchendpoints.showAds" : {
+      "path" : "showAds",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "replace this with your web client ID", "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.bitTiger.searchAds.main.AdSearchEndpoints.showAds",
+      "request" : {
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "adsearchendpoints.showCamps" : {
+      "path" : "showCamps",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "replace this with your web client ID", "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.bitTiger.searchAds.main.AdSearchEndpoints.showCamps",
+      "request" : {
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "adsearchendpoints.findMatch" : {
+      "path" : "findMatch",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "replace this with your web client ID", "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.bitTiger.searchAds.main.AdSearchEndpoints.findMatch",
+      "request" : {
+        "parameters" : {
+          "keyWords" : {
+            "repeated" : true,
+            "type" : "string",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "adsearchendpoints.optimize" : {
+      "path" : "optimize",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "replace this with your web client ID", "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.bitTiger.searchAds.main.AdSearchEndpoints.optmize",
+      "request" : {
+        "parameters" : {
+          "keyWords" : {
+            "repeated" : true,
+            "type" : "string",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "adsearchendpoints.showIndex" : {
+      "path" : "showIndex",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "replace this with your web client ID", "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.bitTiger.searchAds.main.AdSearchEndpoints.showIndex",
+      "request" : {
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "adsearchendpoints.getTokens" : {
+      "path" : "getTokens",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "replace this with your web client ID", "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.bitTiger.searchAds.main.AdSearchEndpoints.getTokens",
+      "request" : {
+        "parameters" : {
+          "name" : {
+            "type" : "string",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    }
+  },
+  "descriptor" : {
+    "schemas" : {
+      "AdsInventory" : {
+        "id" : "AdsInventory",
+        "type" : "object",
+        "properties" : {
+          "empty" : {
+            "type" : "boolean"
+          }
+        }
+      },
+      "CampaignInventory" : {
+        "id" : "CampaignInventory",
+        "type" : "object",
+        "properties" : {
+        }
+      },
+      "AdsStatsInfo" : {
+        "id" : "AdsStatsInfo",
+        "type" : "object",
+        "properties" : {
+          "isMainline" : {
+            "type" : "boolean"
+          },
+          "relevanceScore" : {
+            "type" : "number",
+            "format" : "float"
+          },
+          "qualityScore" : {
+            "type" : "number",
+            "format" : "float"
+          },
+          "rankScore" : {
+            "type" : "number",
+            "format" : "float"
+          },
+          "cpc" : {
+            "type" : "number",
+            "format" : "float"
+          },
+          "adsId" : {
+            "type" : "integer"
+          },
+          "campaignId" : {
+            "type" : "integer"
+          }
+        }
+      },
+      "AdsStatsInfoCollection" : {
+        "id" : "AdsStatsInfoCollection",
+        "type" : "object",
+        "properties" : {
+          "items" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "AdsStatsInfo"
+            }
+          }
+        }
+      },
+      "AdsOptimization" : {
+        "id" : "AdsOptimization",
+        "type" : "object",
+        "properties" : {
+        }
+      },
+      "AdsInvertedIndex" : {
+        "id" : "AdsInvertedIndex",
+        "type" : "object",
+        "properties" : {
+        }
+      },
+      "StringCollection" : {
+        "id" : "StringCollection",
+        "type" : "object",
+        "properties" : {
+          "items" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    },
+    "methods" : {
+      "com.bitTiger.searchAds.main.AdSearchEndpoints.showAds" : {
+        "response" : {
+          "$ref" : "AdsInventory"
+        }
+      },
+      "com.bitTiger.searchAds.main.AdSearchEndpoints.showCamps" : {
+        "response" : {
+          "$ref" : "CampaignInventory"
+        }
+      },
+      "com.bitTiger.searchAds.main.AdSearchEndpoints.findMatch" : {
+        "response" : {
+          "$ref" : "AdsStatsInfoCollection"
+        }
+      },
+      "com.bitTiger.searchAds.main.AdSearchEndpoints.optmize" : {
+        "response" : {
+          "$ref" : "AdsOptimization"
+        }
+      },
+      "com.bitTiger.searchAds.main.AdSearchEndpoints.showIndex" : {
+        "response" : {
+          "$ref" : "AdsInvertedIndex"
+        }
+      },
+      "com.bitTiger.searchAds.main.AdSearchEndpoints.getTokens" : {
+        "response" : {
+          "$ref" : "StringCollection"
+        }
+      }
+    }
+  }
+}

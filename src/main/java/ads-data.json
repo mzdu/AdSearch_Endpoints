@@ -1,0 +1,39 @@
+{
+    "_ads": [{
+        "_adsId": 1231,
+        "_campaignId": 66,
+        "_adsKeyWords": ["basketball", "kobe", "shoe", "nike"],
+        "_pClick": 0.37,
+        "_bid": 6.0
+    }, {
+        "_adsId": 1232,
+        "_campaignId": 66,
+        "_adsKeyWords": ["running", "shoe", "nike"],
+        "_pClick": 0.63,
+        "_bid": 4.5
+    }, {
+        "_adsId": 1233,
+        "_campaignId": 66,
+        "_adsKeyWords": ["soccer", "shoe", "nike"],
+        "_pClick": 0.23,
+        "_bid": 4.0
+    }, {
+        "_adsId": 1234,
+        "_campaignId": 67,
+        "_adsKeyWords": ["running", "shoe", "adidas"],
+        "_pClick": 0.53,
+        "_bid": 7.5
+    }, {
+        "_adsId": 1235,
+        "_campaignId": 67,
+        "_adsKeyWords": ["soccer", "shoe", "adidas"],
+        "_pClick": 0.19,
+        "_bid": 3.5
+    }, {
+        "_adsId": 1236,
+        "_campaignId": 67,
+        "_adsKeyWords": ["basketball", "shoe", "adidas"],
+        "_pClick": 0.29,
+        "_bid": 5.5
+    }]
+}
