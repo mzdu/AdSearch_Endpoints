@@ -52,7 +52,7 @@ public class AdsIndexImpl implements AdsIndex {
           Map<Integer, Integer> hitCounts = new HashMap<Integer, Integer>();
           while (keywordsIterator.hasNext()) {
             String keyWord = keywordsIterator.next();
-           List<Integer> matchedAdsIds = _adsInvertedIndex.retrieveIndex(keyWord);
+           List<Integer> matchedAdsIds = _adsInvertedIndex.retrieveIndex(keyWord.toLowerCase());
             if (matchedAdsIds != null) {
               Iterator<Integer> matchedAdsIdsIterator = matchedAdsIds.iterator();
               while (matchedAdsIdsIterator.hasNext()) {
@@ -73,6 +73,8 @@ public class AdsIndexImpl implements AdsIndex {
               if (campaignInfo.getBudget() > 0) {
                 AdsStatsInfo adsStatsInfo = new AdsStatsInfo(campaignId,adsId);
                 adsStatsInfo.setRelevanceScore(hitCount*1.0f/adsInfo.getAdsKeyWords().size());
+                adsStatsInfo.setQualityScore(0.75f*adsInfo.getpClick()+0.25f*adsStatsInfo.getRelevanceScore());
+                adsStatsInfo.setRankScore(adsStatsInfo.getQualityScore() * adsInfo.getBid());
                 adsStatsInfoList.add(adsStatsInfo);
               }
             }
@@ -101,7 +103,7 @@ public class AdsIndexImpl implements AdsIndex {
           int adInfoId = adInfo.getAdsId();
           for(String keyWord : keyWords)
           {
-            _adsInvertedIndex.insertIndex(keyWord, adInfoId);
+            _adsInvertedIndex.insertIndex(keyWord.toLowerCase(), adInfoId);
           } 
           _adsInventory.insertAds(adInfo);
         }

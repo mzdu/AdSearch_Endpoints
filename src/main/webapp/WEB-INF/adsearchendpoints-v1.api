@@ -157,6 +157,12 @@
         "id" : "AdsStatsInfo",
         "type" : "object",
         "properties" : {
+          "adsId" : {
+            "type" : "integer"
+          },
+          "campaignId" : {
+            "type" : "integer"
+          },
           "isMainline" : {
             "type" : "boolean"
           },
@@ -175,12 +181,6 @@
           "cpc" : {
             "type" : "number",
             "format" : "float"
-          },
-          "adsId" : {
-            "type" : "integer"
-          },
-          "campaignId" : {
-            "type" : "integer"
           }
         }
       },

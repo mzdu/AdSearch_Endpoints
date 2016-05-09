@@ -63,9 +63,10 @@ public class AdsStatsInfo {
         _rankScore = rankScore;
     }
 
- public int getCampaignId() {
-    return _campaignId;
-  }
+	public int getCampaignId() {
+	    return _campaignId;
+	}
+	
     public float getCpc() {
         return _cpc;
     }
