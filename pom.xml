@@ -5,11 +5,11 @@
     <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
 
-    <groupId>com.bittiger.adsearch.helloworld</groupId>
-    <artifactId>helloworld</artifactId>
+    <groupId>com.bitTiger.searchAds.main</groupId>
+    <artifactId>searchAds</artifactId>
 
     <properties>
-        <appengine.app.version>1</appengine.app.version>
+        <appengine.target.version>1.9.37</appengine.target.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -40,6 +40,33 @@
             <artifactId>javax.inject</artifactId>
             <version>1</version>
         </dependency>
+	<dependency>
+	    <groupId>org.apache.lucene</groupId>
+	    <artifactId>lucene-core</artifactId>
+	    <version>6.0.0</version>
+	</dependency>
+	<dependency>
+	    <groupId>org.apache.lucene</groupId>
+	    <artifactId>lucene-analyzers-common</artifactId>
+	    <version>6.0.0</version>
+	</dependency>
+	<dependency>
+	    <groupId>org.apache.lucene</groupId>
+	    <artifactId>lucene-queries</artifactId>
+	    <version>6.0.0</version>
+	</dependency>
+	<dependency>
+	    <groupId>org.apache.lucene</groupId>
+	    <artifactId>lucene-queryparser</artifactId>
+	    <version>6.0.0</version>
+	</dependency>
+    <dependency>
+        <groupId>com.google.code.gson</groupId>
+        <artifactId>gson</artifactId>
+        <version>2.3.1</version>
+    </dependency>
+
+
 
         <!-- Test Dependencies -->
         <dependency>
