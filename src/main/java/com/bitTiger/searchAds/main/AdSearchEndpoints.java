@@ -1,10 +1,13 @@
 package com.bitTiger.searchAds.main;
 
 import java.util.List;
+import java.util.Map;
 
+import com.bitTiger.searchAds.adsInfo.AdsInfo;
 import com.bitTiger.searchAds.adsInfo.AdsInventory;
 import com.bitTiger.searchAds.adsInfo.AdsInvertedIndex;
 import com.bitTiger.searchAds.adsInfo.AdsStatsInfo;
+import com.bitTiger.searchAds.adsInfo.CampaignInfo;
 import com.bitTiger.searchAds.adsInfo.CampaignInventory;
 import com.bitTiger.searchAds.adsInfo.Inventory;
 import com.bitTiger.searchAds.adsOptimization.AdsOptimization;
@@ -57,22 +60,22 @@ public class AdSearchEndpoints {
     //http://localhost:8080/_ah/api/adsearchendpoints/v1/showAds
     @ApiMethod(name = "showAds", path = "showAds",
         httpMethod = HttpMethod.GET)
-    public AdsInventory showAds() {
+    public Map<Integer, AdsInfo> showAds() {
        return INVENTORY.showAds();
     }  
     
     //http://localhost:8080/_ah/api/adsearchendpoints/v1/showCamps
     @ApiMethod(name = "showCamps", path = "showCamps",
         httpMethod = HttpMethod.GET)
-    public CampaignInventory showCamps() {
+    public Map<Integer, CampaignInfo> showCamps() {
        return INVENTORY.showCamps();
     }  
     
     //http://localhost:8080/_ah/api/adsearchendpoints/v1/showIndex
     @ApiMethod(name = "showIndex", path = "showIndex",
         httpMethod = HttpMethod.GET)
-    public AdsInvertedIndex showIndex() {
-      return ADS_INDEX.showIndex();
+    public Map<String, List<Integer>> showIndex() {
+      return ADS_INDEX.ShowInvertedIndex();
     }
     
     //http://localhost:8080/_ah/api/adsearchendpoints/v1/optimize?keyWords=Nike&keyWords=Running&keyWords=Shoe

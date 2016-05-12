@@ -22,5 +22,10 @@ public class AdsInvertedIndex {
   public List<Integer> retrieveIndex(String keyWord) {
     return _adsInvertedIndex.get(keyWord);
   }
+  
+  public Map<String, List<Integer>> GetAdsInvertedIndex()
+  {
+	  return  _adsInvertedIndex;
+  }
 
 }

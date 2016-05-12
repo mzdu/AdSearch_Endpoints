@@ -180,5 +180,11 @@ public class AdsIndexImpl implements AdsIndex {
   public AdsInvertedIndex showIndex() {
     return _adsInvertedIndex;
   }
+  
+  @Override
+  public Map<String, List<Integer>> ShowInvertedIndex()
+  {
+	  return _adsInvertedIndex.GetAdsInvertedIndex();
+  }
       
 }

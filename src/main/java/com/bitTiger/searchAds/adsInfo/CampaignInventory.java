@@ -16,6 +16,11 @@ public class CampaignInventory {
 
   public CampaignInfo findCampaign(Integer campaignId) {
     return _campaignInventory.get(campaignId);
-  }   
+  }  
+  
+  public Map<Integer, CampaignInfo> GetCampaignInventory()
+  {
+	  return _campaignInventory;
+  }
 
 }
