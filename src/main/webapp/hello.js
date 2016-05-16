@@ -48,15 +48,15 @@ function enableButtons () {
 }
 
 /*
- * Execute a request to the sayHello() endpoints function
+ * Execute a request to the getTokens() endpoints function
  */
 function greetGenerically () {
-	// Construct the request for the sayHello() function
-	var request = gapi.client.adsearchendpoints.sayHello();
+	// Construct the request for the getTokens() function
+	var request = gapi.client.adsearchendpoints.getTokens();
 	
 	// Execute the request.
 	// On success, pass the response to sayHelloCallback()
-	request.execute(sayHelloCallback);
+	request.execute(getTokensCallback);
 }
 
 /*
@@ -71,8 +71,8 @@ function runQuery () {
 	// It takes one argument "name"
 	// On success, pass the response to sayHelloCallback()
 	
-	var request = gapi.client.adsearchendpoints.sayHelloByName({'name': queryString});
-	request.execute(sayHelloCallback);
+	var request = gapi.client.adsearchendpoints.getTokens({'name': queryString});
+	request.execute(getTokensCallback);
 	
 //	var request = gapi.client.adsearchendpoints.getTokens({'name': queryString});
 //	request.execute(sayHelloCallback);
@@ -82,11 +82,11 @@ function runQuery () {
 // Process the JSON response
 // In this case, just show an alert dialog box
 // displaying the value of the message field in the response
-function sayHelloCallback (response) {
+function getTokensCallback (response) {
 //	alert(response.testString);	
 //	var res = response.testString;
-	var res = response.message;
-	alert("hellojs -> " + res);	
+	var res = response.items;
+	alert("getTokens -> " + res);	
 }
 
 
