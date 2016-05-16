@@ -17,17 +17,6 @@ public class Inventory {
     public Map<Integer, AdsInfo>  showAds() {
     	return _adsInventory.GetAdsInfoInventory();
     } 
-    public List<AdsInfo> ShowApIAds()
-    {
-    	if(_adsInventory != null)
-    	{
-    		
-             return _adsInventory.GetAdsList();
-    		
-    	}
-    	else
-    		return null;
-    }
 
     public Map<Integer, CampaignInfo> showCamps() {
     	return _campaignInventory.GetCampaignInventory();
