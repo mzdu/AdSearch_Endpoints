@@ -175,11 +175,6 @@ public class AdsIndexImpl implements AdsIndex {
           _campaigns.add(new CampaignInfo(68, 900f));
           return new Campaigns(_campaigns);
       } 
-
-  @Override
-  public AdsInvertedIndex showIndex() {
-    return _adsInvertedIndex;
-  }
   
   @Override
   public Map<String, List<Integer>> ShowInvertedIndex()

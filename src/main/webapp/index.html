@@ -4,21 +4,73 @@
 <meta charset="UTF-8">
 <title>AdSearch Endpoints</title>
 
-<script src="hello.js"></script>
+
 
 <!--  Load the Google APIs Javascript client library -->
 <!--  Then call the init function, which is defined in hello.js -->
+
+<script src="JavaScript/angular.min.js"></script>
+<script src="JavaScript/hello.js"></script>
+<script src="JavaScript/AdsSearchApp.js"></script>
+<script src="JavaScript/AdsSearchService.js"></script>
+<script src="JavaScript/AdsSearchController.js"></script>
 <script src="https://apis.google.com/js/client.js?onload=init"></script>
 
+ <link href="css/bootstrap.min.css" rel="stylesheet">
+ 
+ 
 </head>
 
 <body>
+<div class = "row" style = "text-align: center;vertical-align: middle;">
 <H1>BitTiger--AdSearch</H1>
+</div>
 
-<P>Enter your query ==> <input value ="Nike a Running Shoe" id="query_field"></P>
 
-<P><input id="query_button" type="button" value="please wait" 
-  onclick="will_be_set_after_endpoints_apis_loaded"></P>
+                                  
+ <div class="container" ng-app = "AdsSearchApp" ng-controller = "AdsSearchController" >
+	<div class="row">
+		<div class="col-md-12">
+            
+                <input type="text" id = "query_field" class="form-control" placeholder="Search for advertisement" ng-model="searchText"  style = "width:80%;display:inline"/>
+          
+                        <button id="query_button"  ng-click = "getTokens()" type="button" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                    </div>
+               
+            </div>
+            <div id = "showSearchSteps" ng-show = "showResult">
+            <div class = "row">
+                <div class = "row" style = "text-align: center;vertical-align: middle;">
+                    <H1>NLP</H1>
+                 </div>
+                 <div class = "row">
+                    <ul>
+                      <div ng-repeat="token in tokens">
+                         <li>{{token}}</li>
+                      </div>
+                    </ul>
+                 </div>
+            </div>
+             <div class = "row">
+                <div class = "row" style = "text-align: center;vertical-align: middle;">
+                    <H1>Index Match</H1>
+                 </div>
+                 <div class = "row">
+                    <ul>
+                      <div ng-repeat="adsStatsInfo in adsStatsInfoList">
+                         <li>{{token}}</li>
+                      </div>
+                    </ul>
+                 </div>
+            </div>
+            </div>
+            
+            
+            
+          </div>
+      
+
+
   
 </body>
 

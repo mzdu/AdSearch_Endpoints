@@ -25,6 +25,21 @@
     "maxAge" : 0
   },
   "methods" : {
+    "adsearchendpoints.showIndex" : {
+      "path" : "showIndex",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "replace this with your web client ID", "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.bitTiger.searchAds.main.AdSearchEndpoints.showIndex",
+      "request" : {
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
     "adsearchendpoints.showAds" : {
       "path" : "showAds",
       "httpMethod" : "GET",
@@ -34,43 +49,6 @@
       "clientIds" : [ "replace this with your web client ID", "292824132082.apps.googleusercontent.com" ],
       "rosyMethod" : "com.bitTiger.searchAds.main.AdSearchEndpoints.showAds",
       "request" : {
-        "body" : "empty"
-      },
-      "response" : {
-        "body" : "autoTemplate(backendResponse)"
-      }
-    },
-    "adsearchendpoints.showCamps" : {
-      "path" : "showCamps",
-      "httpMethod" : "GET",
-      "authLevel" : "NONE",
-      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
-      "audiences" : [ ],
-      "clientIds" : [ "replace this with your web client ID", "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "com.bitTiger.searchAds.main.AdSearchEndpoints.showCamps",
-      "request" : {
-        "body" : "empty"
-      },
-      "response" : {
-        "body" : "autoTemplate(backendResponse)"
-      }
-    },
-    "adsearchendpoints.findMatch" : {
-      "path" : "findMatch",
-      "httpMethod" : "GET",
-      "authLevel" : "NONE",
-      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
-      "audiences" : [ ],
-      "clientIds" : [ "replace this with your web client ID", "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "com.bitTiger.searchAds.main.AdSearchEndpoints.findMatch",
-      "request" : {
-        "parameters" : {
-          "keyWords" : {
-            "repeated" : true,
-            "type" : "string",
-            "required" : true
-          }
-        },
         "body" : "empty"
       },
       "response" : {
@@ -99,14 +77,14 @@
         "body" : "autoTemplate(backendResponse)"
       }
     },
-    "adsearchendpoints.showIndex" : {
-      "path" : "showIndex",
+    "adsearchendpoints.showCamps" : {
+      "path" : "showCamps",
       "httpMethod" : "GET",
       "authLevel" : "NONE",
       "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
       "audiences" : [ ],
       "clientIds" : [ "replace this with your web client ID", "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "com.bitTiger.searchAds.main.AdSearchEndpoints.showIndex",
+      "rosyMethod" : "com.bitTiger.searchAds.main.AdSearchEndpoints.showCamps",
       "request" : {
         "body" : "empty"
       },
@@ -134,33 +112,62 @@
       "response" : {
         "body" : "autoTemplate(backendResponse)"
       }
+    },
+    "adsearchendpoints.findMatch" : {
+      "path" : "findMatch",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "replace this with your web client ID", "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.bitTiger.searchAds.main.AdSearchEndpoints.findMatch",
+      "request" : {
+        "parameters" : {
+          "keyWords" : {
+            "repeated" : true,
+            "type" : "string",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
     }
   },
   "descriptor" : {
     "schemas" : {
-      "AdsInventory" : {
-        "id" : "AdsInventory",
+      "JsonMap" : {
+        "id" : "JsonMap",
+        "type" : "object"
+      },
+      "AdsOptimization" : {
+        "id" : "AdsOptimization",
         "type" : "object",
         "properties" : {
-          "empty" : {
-            "type" : "boolean"
-          }
         }
       },
-      "CampaignInventory" : {
-        "id" : "CampaignInventory",
+      "StringCollection" : {
+        "id" : "StringCollection",
         "type" : "object",
         "properties" : {
+          "items" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          }
         }
       },
       "AdsStatsInfo" : {
         "id" : "AdsStatsInfo",
         "type" : "object",
         "properties" : {
-          "adsId" : {
+          "campaignId" : {
             "type" : "integer"
           },
-          "campaignId" : {
+          "adsId" : {
             "type" : "integer"
           },
           "isMainline" : {
@@ -195,46 +202,17 @@
             }
           }
         }
-      },
-      "AdsOptimization" : {
-        "id" : "AdsOptimization",
-        "type" : "object",
-        "properties" : {
-        }
-      },
-      "AdsInvertedIndex" : {
-        "id" : "AdsInvertedIndex",
-        "type" : "object",
-        "properties" : {
-        }
-      },
-      "StringCollection" : {
-        "id" : "StringCollection",
-        "type" : "object",
-        "properties" : {
-          "items" : {
-            "type" : "array",
-            "items" : {
-              "type" : "string"
-            }
-          }
-        }
       }
     },
     "methods" : {
+      "com.bitTiger.searchAds.main.AdSearchEndpoints.showIndex" : {
+        "response" : {
+          "$ref" : "JsonMap"
+        }
+      },
       "com.bitTiger.searchAds.main.AdSearchEndpoints.showAds" : {
         "response" : {
-          "$ref" : "AdsInventory"
-        }
-      },
-      "com.bitTiger.searchAds.main.AdSearchEndpoints.showCamps" : {
-        "response" : {
-          "$ref" : "CampaignInventory"
-        }
-      },
-      "com.bitTiger.searchAds.main.AdSearchEndpoints.findMatch" : {
-        "response" : {
-          "$ref" : "AdsStatsInfoCollection"
+          "$ref" : "JsonMap"
         }
       },
       "com.bitTiger.searchAds.main.AdSearchEndpoints.optmize" : {
@@ -242,14 +220,19 @@
           "$ref" : "AdsOptimization"
         }
       },
-      "com.bitTiger.searchAds.main.AdSearchEndpoints.showIndex" : {
+      "com.bitTiger.searchAds.main.AdSearchEndpoints.showCamps" : {
         "response" : {
-          "$ref" : "AdsInvertedIndex"
+          "$ref" : "JsonMap"
         }
       },
       "com.bitTiger.searchAds.main.AdSearchEndpoints.getTokens" : {
         "response" : {
           "$ref" : "StringCollection"
+        }
+      },
+      "com.bitTiger.searchAds.main.AdSearchEndpoints.findMatch" : {
+        "response" : {
+          "$ref" : "AdsStatsInfoCollection"
         }
       }
     }

@@ -12,8 +12,7 @@ public interface AdsIndex {
   Inventory buildIndex(String fileName,String campaignFileName) ;
 
   List<AdsStatsInfo> indexMatch(List<String> keyWords);
-  
-  AdsInvertedIndex showIndex();
+ 
   Map<String, List<Integer>> ShowInvertedIndex();
 
 }
