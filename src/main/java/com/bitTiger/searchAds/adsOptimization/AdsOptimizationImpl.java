@@ -149,4 +149,17 @@ public class AdsOptimizationImpl implements AdsOptimization {
         return _candidateAds.hashCode();
     }
 
+    @Override
+    public List<AdsStatsInfo> showOptimizationResult(Inventory INVENTORY,
+            float MIN_RELEVANCE_SCORE, float MIN_RESERVE_PRICE, Integer K,
+            float MAINLINE_RESERVE_PRICE) {
+        return this.filterAds(INVENTORY, MIN_RELEVANCE_SCORE, MIN_RESERVE_PRICE)
+                .selectTopK(K).deDup().adsPricingAndAllocation(INVENTORY, MAINLINE_RESERVE_PRICE)
+                .getCandidateAds();
+    }
+
+    public List<AdsStatsInfo> getCandidateAds() {
+        return _candidateAds;
+    }
+
 }
