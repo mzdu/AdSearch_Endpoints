@@ -83,8 +83,9 @@ public class AdSearchEndpoints {
             httpMethod = HttpMethod.GET)
     public List<AdsStatsInfo> optmize(@Named("keyWords") List<String> keyWords) {
         AdsOptimization adsOptimizer = new AdsOptimizationImpl(findMatch(keyWords));
-        return adsOptimizer.showOptimizationResult(INVENTORY, MIN_RELEVANCE_SCORE,
-                MIN_RESERVE_PRICE, K, MAINLINE_RESERVE_PRICE);
+        return adsOptimizer.filterAds(INVENTORY, MIN_RELEVANCE_SCORE, MIN_RESERVE_PRICE)
+                .selectTopK(K).deDup().adsPricingAndAllocation(INVENTORY, MAINLINE_RESERVE_PRICE)
+                .showResult();
     }
 
 }
