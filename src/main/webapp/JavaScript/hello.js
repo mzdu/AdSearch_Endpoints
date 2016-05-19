@@ -19,11 +19,12 @@ function init() {
 	// //localhost:8080/_ah/api
 	// //your-app-id/_ah/api
 
-	var rootpath = "//" + window.location.host + "/_ah/api";
+	//var rootpath = "//" + window.location.host + "/_ah/api";
 	
 	// Load the adsearchendpoints API
 	// If loading completes successfully, call loadCallback function
-	gapi.client.load('adsearchendpoints', 'v1', loadCallback, rootpath);
+	//gapi.client.load('adsearchendpoints', 'v1', loadCallback, rootpath);
+	 window.init();
 }
 
 /*
@@ -44,7 +45,7 @@ function enableButtons () {
 	btn.onclick=function(){runQuery();};
 	
 	// Update the button label now that the button is active
-	btn.value="OK";
+	
 }
 
 /*
