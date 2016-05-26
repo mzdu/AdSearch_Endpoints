@@ -19,6 +19,37 @@ public class AdsOptimizationImpl implements AdsOptimization {
         }
         _candidateAds = candidateAds;
     }
+    
+    @Override
+    public List<AdsStatsInfo> filterCandidateAds(Inventory inventory, float minRelevanceScore, float minReservePrice)
+    {
+    	 if (minRelevanceScore < 0 || minRelevanceScore > 1) {
+             throw new IllegalArgumentException(
+                     "Minimum Relevance Score should be a number between 0 and 1.");
+         }
+         if (minReservePrice < 0) {
+             throw new IllegalArgumentException(
+                     "Minimum Reserve Price should be a non-negtive number.");
+         }
+         if (inventory.isEmpty()) {
+             return null;
+         }
+         // filter ads whose relevance score < min relevance score;
+         for (Iterator<AdsStatsInfo> iterator = _candidateAds.iterator(); iterator.hasNext();) {
+             if (iterator.next().getRelevanceScore() < minRelevanceScore) {
+                 iterator.remove();
+             }
+         }
+         // filter ads whose bid < min reserve price
+         for (Iterator<AdsStatsInfo> iterator = _candidateAds.iterator(); iterator.hasNext();) {
+             if (inventory.findAds(iterator.next().getAdsId()).getBid() < minReservePrice) {
+                 iterator.remove();
+             }
+         }
+         return  _candidateAds;
+    	
+    	
+    }
 
     @Override
     public AdsOptimization filterAds(Inventory inventory, float minRelevanceScore, float minReservePrice) {

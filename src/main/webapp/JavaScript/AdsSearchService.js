@@ -6,14 +6,26 @@ angular.module('AdsSearchApp').service(
          function ($http, $q) {
              return ({
                  getTokens:getTokens,
-                
+                 initendpoints:initendpoints,
+                 findMatch:findMatch
              });
-             
+            
+             function initendpoints(postInitiation) {
+            	 gapi.client.load('adsearchendpoints', 'v1', postInitiation, '/_ah/api');
+              }
              function getTokens(searchString)
              {
             	 var url = gapi.client.adsearchendpoints.getTokens();
             	 var data = {'name': searchString};
-            	 return getData(url, data);
+            	 return getData(url.hg.hg.root + url.hg.hg.path,data);
+            	 
+             }
+             function findMatch(tokens)
+             {
+            	 var url = gapi.client.adsearchendpoints.findMatch();
+            	 var data = {'keyWords': tokens};
+            	 return getData(url.hg.hg.root + url.hg.hg.path,data);
+            	 
              }
              
              function getData(url, data) {

@@ -77,6 +77,14 @@ public class AdSearchEndpoints {
     public Map<String, List<Integer>> showIndex() {
         return ADS_INDEX.ShowInvertedIndex();
     }
+    
+  //http://localhost:8080/_ah/api/adsearchendpoints/v1/filterAds
+    @ApiMethod(name = "filterAds", path = "filterAds",
+            httpMethod = HttpMethod.GET)
+    public List<AdsStatsInfo> filterAds( List<AdsStatsInfo> adsCandidateList) {
+    	AdsOptimization adsOptimizer = new AdsOptimizationImpl(adsCandidateList);
+    	return adsOptimizer.filterCandidateAds(INVENTORY, MIN_RELEVANCE_SCORE, MIN_RESERVE_PRICE);
+    }
 
     //http://localhost:8080/_ah/api/adsearchendpoints/v1/optimize?keyWords=Nike&keyWords=Running&keyWords=Shoe
     @ApiMethod(name = "optimize", path = "optimize",

@@ -15,4 +15,6 @@ public interface AdsOptimization {
     AdsOptimization adsPricingAndAllocation(Inventory inventory, float mainlineReservePrice);
 
     List<AdsStatsInfo> showResult();
+   
+    List<AdsStatsInfo> filterCandidateAds(Inventory inventory, float minRelevanceScore, float minReservePrice);
 }
