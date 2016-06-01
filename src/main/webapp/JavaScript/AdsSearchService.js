@@ -7,7 +7,8 @@ angular.module('AdsSearchApp').service(
              return ({
                  getTokens:getTokens,
                  initendpoints:initendpoints,
-                 findMatch:findMatch
+                 findMatch:findMatch,
+                 optimize:optimize
              });
             
              function initendpoints(postInitiation) {
@@ -24,6 +25,14 @@ angular.module('AdsSearchApp').service(
              {
             	 var url = gapi.client.adsearchendpoints.findMatch();
             	 var data = {'keyWords': tokens};
+            	 return getData(url.hg.hg.root + url.hg.hg.path,data);
+            	 
+             }
+             
+             function optimize(keywords)
+             {
+            	 var url = gapi.client.adsearchendpoints.optimize();
+            	 var data = {'keyWords': keywords};
             	 return getData(url.hg.hg.root + url.hg.hg.path,data);
             	 
              }

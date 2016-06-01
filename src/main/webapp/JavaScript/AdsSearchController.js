@@ -6,7 +6,7 @@ angular.module('AdsSearchApp').controller('AdsSearchController', function ($scop
    $scope.showResult = false;
    $scope.tokens = [];
    $scope.adsStatsInfoList = [];
-   
+   $scope.OptimizeadsStatsInfoList = [];
 //   $window.init= function() {
 //	   $scope.$apply($scope.load_adsearchendpoints);
 //	 };
@@ -31,6 +31,12 @@ angular.module('AdsSearchApp').controller('AdsSearchController', function ($scop
 			
 			AdsSearchService.findMatch( $scope.tokens).then(function(data){
 				$scope.adsStatsInfoList  = data.items;
+				$scope.showResult = true;
+			
+				
+			});
+			AdsSearchService.optimize( $scope.tokens).then(function(data){
+				$scope.OptimizeadsStatsInfoList  = data.items;
 				$scope.showResult = true;
 			
 				

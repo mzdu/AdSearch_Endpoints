@@ -84,6 +84,33 @@
 					</div>
 				</div>
 			</div>
+			<div class="row">
+				<div class="row" style="text-align: center; vertical-align: middle;">
+					<H1>Optimization</H1>
+				</div>
+				<div class="row">
+
+					<div ng-repeat="adsStatsInfo in OptimizeadsStatsInfoList">
+						<div class="row">
+							<div class="col col-xs-2 col-xs-offset-1">
+								<label>campaignId</label> {{adsStatsInfo.campaignId}}
+							</div>
+							<div class="col col-xs-2">
+								<label>adsId</label> {{adsStatsInfo.adsId}}
+							</div>
+							<div class="col col-xs-2">
+								<label>quality score</label> {{adsStatsInfo.qualityScore}}
+							</div>
+							<div class="col col-xs-2">
+								<label>relevance score</label> {{adsStatsInfo.relevanceScore}}
+							</div>
+							<div class="col col-xs-2">
+								<label>rank score</label> {{adsStatsInfo.rankScore}}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </body>
