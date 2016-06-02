@@ -6,12 +6,14 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Comparator;
 import java.util.Set;
+import java.util.concurrent.locks.StampedLock;
 
 import com.bitTiger.searchAds.adsInfo.AdsStatsInfo;
 import com.bitTiger.searchAds.adsInfo.Inventory;
 
 public class AdsOptimizationImpl implements AdsOptimization {
     private final List<AdsStatsInfo> _candidateAds;
+    private final StampedLock sl = new StampedLock();
 
     public AdsOptimizationImpl(List<AdsStatsInfo> candidateAds) {
         if (candidateAds == null) {
@@ -61,7 +63,7 @@ public class AdsOptimizationImpl implements AdsOptimization {
             throw new IllegalArgumentException(
                     "Minimum Reserve Price should be a non-negtive number.");
         }
-        if (inventory.isEmpty()) {
+        if (inventory.size() == 0) {
             return this;
         }
         // filter ads whose relevance score < min relevance score;
@@ -128,7 +130,14 @@ public class AdsOptimizationImpl implements AdsOptimization {
             float bid = inventory.findAds(nextAds.getAdsId()).getBid();
             float price = nextAds.getQualityScore() / currentAds.getQualityScore() * bid + 0.01f;
             currentAds.setCpc(price);
-            inventory.findCampaign(currentAds.getCampaignId()).deductBudget(currentAds.getCpc());
+            // deduct ads cost from budget
+            long stamp = sl.writeLock();
+            try {
+                inventory.findCampaign(currentAds.getCampaignId())
+                .deductBudget(currentAds.getCpc());
+            } finally {
+                sl.unlockWrite(stamp);
+            }
             currentAds.setIsMainline(currentAds.getCpc() >= mainlineReservePrice);
         }
         _candidateAds.remove(_candidateAds.size() - 1);
@@ -143,8 +152,7 @@ public class AdsOptimizationImpl implements AdsOptimization {
         String result = "Ads Id || Quality Score || Rank Score";
         for (Iterator<AdsStatsInfo> iterator = _candidateAds.iterator(); iterator.hasNext();) {
             AdsStatsInfo info = iterator.next();
-            result = result + info.getAdsId() + " " + info.getQualityScore()
-                    + " " + info.getRankScore() + "\n";
+            result = result + info.toString() + "\n";
         }
         return result;
     }

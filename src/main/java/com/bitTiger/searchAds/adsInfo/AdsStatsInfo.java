@@ -1,5 +1,7 @@
 package com.bitTiger.searchAds.adsInfo;
 
+import java.util.Objects;
+
 public class AdsStatsInfo {
     private final int _campaignId;
     private final int _adsId;
@@ -19,14 +21,14 @@ public class AdsStatsInfo {
         _isMainline = false;
     }
 
-    // for testing only
-    public AdsStatsInfo(int campaignId, int adsId, float relevanceScore, float cpc,
+    public AdsStatsInfo(int campaignId, int adsId, float relevanceScore, float qualityScore,
+            float rankScore, float cpc,
             boolean isMainline) {
         _campaignId = campaignId;
         _adsId = adsId;
         _relevanceScore = relevanceScore;
-        _qualityScore = 0;
-        _rankScore = 0;
+        _qualityScore = qualityScore;
+        _rankScore = rankScore;
         _cpc = cpc;
         _isMainline = isMainline;
     }
@@ -63,10 +65,10 @@ public class AdsStatsInfo {
         _rankScore = rankScore;
     }
 
-	public int getCampaignId() {
-	    return _campaignId;
-	}
-	
+    public int getCampaignId() {
+        return _campaignId;
+    }
+
     public float getCpc() {
         return _cpc;
     }
@@ -78,16 +80,36 @@ public class AdsStatsInfo {
     public int getAdsId() {
         return _adsId;
     }
+
     @Override
-    public boolean equals(Object o)
-    {
-    	return true;
+    public boolean equals(Object o) {
+        if (o == null || !(o instanceof AdsStatsInfo)) {
+            return false;
+        }
+        if (o == this) {
+            return true;
+        }
+        AdsStatsInfo other = (AdsStatsInfo) o;
+        return this._campaignId == other._campaignId && this._adsId == other._adsId
+                && floatCompare(this._relevanceScore, other._relevanceScore)
+                && floatCompare(this._qualityScore, other._qualityScore)
+                && floatCompare(this._rankScore, other._rankScore)
+                && floatCompare(_cpc, other._cpc) && this._isMainline == other._isMainline;
     }
+
     @Override
-    public int hashCode()
-    {
-    	int hash = _campaignId + _adsId;
-    	float value = _relevanceScore  + _qualityScore + _rankScore + _cpc;
-    	return (int)(value/hash);
+    public int hashCode() {
+        return Objects.hash(this._campaignId, this._adsId, this._relevanceScore,
+                this._qualityScore, this._rankScore, this._cpc, this._isMainline);
+    }
+
+    @Override
+    public String toString() {
+        return _campaignId + " " + _adsId + " " + _relevanceScore + " " + _qualityScore + " "
+                + _rankScore + " " + _cpc + " " + _isMainline;
+    }
+
+    private boolean floatCompare(float f1, float f2) {
+        return Math.abs(f1 - f2) < 0.2;
     }
 }
