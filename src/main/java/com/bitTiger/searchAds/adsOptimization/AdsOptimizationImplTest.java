@@ -3,7 +3,6 @@ package com.bitTiger.searchAds.adsOptimization;
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import org.junit.After;
@@ -15,11 +14,8 @@ import com.tngtech.java.junit.dataprovider.DataProvider;
 import com.tngtech.java.junit.dataprovider.DataProviderRunner;
 import com.tngtech.java.junit.dataprovider.UseDataProvider;
 
-import com.bitTiger.searchAds.adsInfo.AdsInfo;
 import com.bitTiger.searchAds.adsInfo.AdsInventory;
-import com.bitTiger.searchAds.adsInfo.AdsInvertedIndex;
 import com.bitTiger.searchAds.adsInfo.AdsStatsInfo;
-import com.bitTiger.searchAds.adsInfo.CampaignInfo;
 import com.bitTiger.searchAds.adsInfo.CampaignInventory;
 import com.bitTiger.searchAds.adsInfo.Inventory;
 import com.bitTiger.searchAds.help.Help;
