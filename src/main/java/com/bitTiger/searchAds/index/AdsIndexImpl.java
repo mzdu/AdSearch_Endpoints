@@ -75,7 +75,7 @@ public class AdsIndexImpl implements AdsIndex {
                     int campaignId = adsInfo.getCampaignId();
                     CampaignInfo campaignInfo = _campaignInventory.findCampaign(campaignId);
                     if (campaignInfo.getBudget() > 0) {
-                        BudgetLock.lock.readLock().lock();
+                        BudgetLock.acquireReadLock();
                         if (campaignInfo.getBudget() > 0) {
                             try {
                                 AdsStatsInfo adsStatsInfo = new AdsStatsInfo(campaignId,adsId);
@@ -85,7 +85,7 @@ public class AdsIndexImpl implements AdsIndex {
                                 adsStatsInfoList.add(adsStatsInfo);
                             }
                             finally {
-                                BudgetLock.lock.readLock().unlock();
+                                BudgetLock.releaseReadLock();
                             }
                         }
                     }
