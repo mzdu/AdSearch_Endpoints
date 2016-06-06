@@ -1,6 +1,6 @@
-package com.bittiger.searchAds.service;
+package com.bitTiger.searchAds.service;
 
-import com.bittiger.searchAds.datastore.AdsData;
+import com.bitTiger.searchAds.datastore.AdsData;
 import com.googlecode.objectify.Objectify;
 import com.googlecode.objectify.ObjectifyFactory;
 import com.googlecode.objectify.ObjectifyService;
