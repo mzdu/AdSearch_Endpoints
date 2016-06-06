@@ -3,6 +3,8 @@ package com.bitTiger.searchAds.main;
 import java.util.List;
 import java.util.Map;
 
+import static com.bittiger.searchAds.service.OfyService.ofy;
+
 import com.bitTiger.searchAds.adsInfo.AdsInfo;
 import com.bitTiger.searchAds.adsInfo.AdsInventory;
 import com.bitTiger.searchAds.adsInfo.AdsInvertedIndex;
@@ -16,6 +18,9 @@ import com.bitTiger.searchAds.index.AdsIndex;
 import com.bitTiger.searchAds.index.AdsIndexImpl;
 import com.bitTiger.searchAds.queryParser.QueryParser;
 import com.bitTiger.searchAds.queryParser.QueryParserImpl;
+
+import com.bittiger.searchAds.datastore.AdsData;
+
 import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;
 import com.google.api.server.spi.config.ApiMethod.HttpMethod;
@@ -47,6 +52,11 @@ public class AdSearchEndpoints {
     @ApiMethod(name = "getTokens", path = "getTokens",
             httpMethod = HttpMethod.GET)
     public List<String> getTokens(@Named("name") String queryString) {
+    
+    	// add new test data
+    	AdsData data = new AdsData(99, 999);
+    	ofy().save().entity(data).now();
+    	
         return QUERY_PARSER.parseQuery(queryString);
     }
 

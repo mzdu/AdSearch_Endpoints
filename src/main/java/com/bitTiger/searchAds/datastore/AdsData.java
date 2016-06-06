@@ -15,7 +15,7 @@ public class AdsData {
 	};
 
 	public Integer getId() {
-		return _ads;
+		return _adsId;
 	}
 	
 	public Integer getCampaignId() {
