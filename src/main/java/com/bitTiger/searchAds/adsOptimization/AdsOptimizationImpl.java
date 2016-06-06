@@ -6,14 +6,13 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Comparator;
 import java.util.Set;
-import java.util.concurrent.locks.StampedLock;
 
 import com.bitTiger.searchAds.adsInfo.AdsStatsInfo;
 import com.bitTiger.searchAds.adsInfo.Inventory;
+import com.bitTiger.searchAds.lock.BudgetLock;
 
 public class AdsOptimizationImpl implements AdsOptimization {
     private final List<AdsStatsInfo> _candidateAds;
-    private final StampedLock sl = new StampedLock();
 
     public AdsOptimizationImpl(List<AdsStatsInfo> candidateAds) {
         if (candidateAds == null) {
@@ -131,12 +130,12 @@ public class AdsOptimizationImpl implements AdsOptimization {
             float price = nextAds.getQualityScore() / currentAds.getQualityScore() * bid + 0.01f;
             currentAds.setCpc(price);
             // deduct ads cost from budget
-            long stamp = sl.writeLock();
+            BudgetLock.lock.writeLock().lock();
             try {
                 inventory.findCampaign(currentAds.getCampaignId())
                 .deductBudget(currentAds.getCpc());
             } finally {
-                sl.unlockWrite(stamp);
+                BudgetLock.lock.writeLock().unlock();
             }
             currentAds.setIsMainline(currentAds.getCpc() >= mainlineReservePrice);
         }
