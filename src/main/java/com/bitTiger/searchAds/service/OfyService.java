@@ -1,6 +1,7 @@
 package com.bitTiger.searchAds.service;
 
 import com.bitTiger.searchAds.datastore.AdsData;
+import com.bitTiger.searchAds.datastore.CampaignData;
 import com.googlecode.objectify.Objectify;
 import com.googlecode.objectify.ObjectifyFactory;
 import com.googlecode.objectify.ObjectifyService;
@@ -15,6 +16,7 @@ public class OfyService {
     static {
         // factory().register(Conference.class);
         factory().register(AdsData.class);
+        factory().register(CampaignData.class);
     }
 
     /**

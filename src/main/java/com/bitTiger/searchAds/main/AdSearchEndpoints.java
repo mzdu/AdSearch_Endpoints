@@ -20,6 +20,7 @@ import com.bitTiger.searchAds.queryParser.QueryParser;
 import com.bitTiger.searchAds.queryParser.QueryParserImpl;
 
 import com.bitTiger.searchAds.datastore.AdsData;
+import com.bitTiger.searchAds.datastore.CampaignData;
 
 import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;
@@ -53,9 +54,25 @@ public class AdSearchEndpoints {
             httpMethod = HttpMethod.GET)
     public List<String> getTokens(@Named("name") String queryString) {
     
-    	// add new test data
-    	AdsData data = new AdsData((long) 99, 999);
-    	ofy().save().entity(data).now();
+    	// add Ads data
+    	AdsData ads1 = new AdsData((long) 1231, (long) 66, "basketball kobe shoe nike", 0.37f, 6.0f);
+    	ofy().save().entity(ads1).now();
+    	AdsData ads2 = new AdsData((long) 1232, (long) 66, "soccer shoe nike", 0.23f, 4.0f);
+    	ofy().save().entity(ads2).now();
+    	AdsData ads3 = new AdsData((long) 1233, (long) 67, "running shoe adidas", 0.53f, 7.5f);
+    	ofy().save().entity(ads3).now();
+    	AdsData ads4 = new AdsData((long) 1234, (long) 67, "soccer shoe adidas", 0.19f, 3.5f);
+    	ofy().save().entity(ads4).now();
+    	AdsData ads5 = new AdsData((long) 1235, (long) 67, "basketball shoe adidas", 0.29f, 5.5f);
+    	ofy().save().entity(ads5).now();
+    	
+    	// add Campaign data
+    	CampaignData cmp1 = new CampaignData((long) 66, 1500f);
+    	ofy().save().entity(cmp1).now();    	
+    	CampaignData cmp2 = new CampaignData((long) 67, 2800f);
+    	ofy().save().entity(cmp2).now();       	
+    	CampaignData cmp3 = new CampaignData((long) 68, 900f);
+    	ofy().save().entity(cmp3).now();   
     	
         return QUERY_PARSER.parseQuery(queryString);
     }
