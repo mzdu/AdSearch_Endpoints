@@ -3,15 +3,15 @@ package com.bitTiger.searchAds.adsInfo;
 import java.util.Objects;
 
 public class AdsStatsInfo {
-    private final int _campaignId;
-    private final int _adsId;
+    private final Long _campaignId;
+    private final Long _adsId;
     private float _relevanceScore;
     private float _qualityScore;
     private float _rankScore;
     private float _cpc;
     private boolean _isMainline;
 
-    public AdsStatsInfo(int campaignId, int adsId) {
+    public AdsStatsInfo(Long campaignId, Long adsId) {
         _campaignId = campaignId;
         _adsId = adsId;
         _relevanceScore = 0;
@@ -21,7 +21,7 @@ public class AdsStatsInfo {
         _isMainline = false;
     }
 
-    public AdsStatsInfo(int campaignId, int adsId, float relevanceScore, float qualityScore,
+    public AdsStatsInfo(Long campaignId, Long adsId, float relevanceScore, float qualityScore,
             float rankScore, float cpc,
             boolean isMainline) {
         _campaignId = campaignId;
@@ -65,7 +65,7 @@ public class AdsStatsInfo {
         _rankScore = rankScore;
     }
 
-    public int getCampaignId() {
+    public Long getCampaignId() {
         return _campaignId;
     }
 
@@ -77,7 +77,7 @@ public class AdsStatsInfo {
         _cpc = cpc;
     }
 
-    public int getAdsId() {
+    public Long getAdsId() {
         return _adsId;
     }
 

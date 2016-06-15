@@ -7,21 +7,21 @@ import java.util.HashMap;
 import java.util.List;
 
 public class AdsInventory {
-    private final Map<Integer, AdsInfo> _adsInfoInventory;
+    private final Map<Long, AdsInfo> _adsInfoInventory;
 
     public AdsInventory() {
-        _adsInfoInventory = new HashMap<Integer, AdsInfo>();
+        _adsInfoInventory = new HashMap<Long, AdsInfo>();
     }
 
     public void insertAds(AdsInfo adsInfo) {
         _adsInfoInventory.put(adsInfo.getAdsId(), adsInfo);
     }
 
-    public Map<Integer, AdsInfo> GetAdsInfoInventory()
+    public Map<Long, AdsInfo> GetAdsInfoInventory()
     {
         return _adsInfoInventory;
     }
-    public AdsInfo findAds(int adsId) {
+    public AdsInfo findAds(Long adsId) {
         return _adsInfoInventory.get(adsId);
     }
 

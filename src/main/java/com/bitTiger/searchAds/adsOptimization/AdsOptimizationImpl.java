@@ -10,6 +10,7 @@ import java.util.Set;
 import com.bitTiger.searchAds.adsInfo.AdsStatsInfo;
 import com.bitTiger.searchAds.adsInfo.Inventory;
 import com.bitTiger.searchAds.lock.BudgetLock;
+import com.bitTiger.searchAds.datastore.*;
 
 public class AdsOptimizationImpl implements AdsOptimization {
     private final List<AdsStatsInfo> _candidateAds;
@@ -119,6 +120,7 @@ public class AdsOptimizationImpl implements AdsOptimization {
             AdsStatsInfo ads = _candidateAds.get(0);
             ads.setCpc(inventory.findAds(ads.getAdsId()).getBid());
             inventory.findCampaign(ads.getCampaignId()).deductBudget(ads.getCpc());
+            CampaignDataOperation.deductCampaignBudget(ads.getCampaignId(), ads.getCpc());
             ads.setIsMainline(ads.getCpc() >= mainlineReservePrice);
             return this;
         }
@@ -134,6 +136,7 @@ public class AdsOptimizationImpl implements AdsOptimization {
             try {
                 inventory.findCampaign(currentAds.getCampaignId())
                 .deductBudget(currentAds.getCpc());
+                CampaignDataOperation.deductCampaignBudget(currentAds.getCampaignId(), currentAds.getCpc());
             } finally {
                 BudgetLock.releaseWriteLock();
             }
@@ -162,9 +165,9 @@ public class AdsOptimizationImpl implements AdsOptimization {
             return this;
         }
         // this set contains all existing campaign ids
-        Set<Integer> campaignSet = new HashSet<Integer>();
+        Set<Long> campaignSet = new HashSet<Long>();
         for (Iterator<AdsStatsInfo> iterator = _candidateAds.iterator(); iterator.hasNext();) {
-            Integer cid = iterator.next().getCampaignId();
+            Long cid = iterator.next().getCampaignId();
             if (campaignSet.contains(cid)) {
                 iterator.remove();
             } else {

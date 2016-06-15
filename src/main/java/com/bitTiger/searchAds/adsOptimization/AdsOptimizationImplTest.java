@@ -79,57 +79,57 @@ public class AdsOptimizationImplTest {
     @DataProvider
     public static Object[][] filterAdsData() {
         ArrayList<AdsStatsInfo> adsStatsInfoList = new ArrayList<AdsStatsInfo>();
-        AdsStatsInfo adsStatsInfo = new AdsStatsInfo(66, 1231, 0.5f, 0.8f, 0.9f, 5.0f, true);
+        AdsStatsInfo adsStatsInfo = new AdsStatsInfo((long)66, (long)1231, 0.5f, 0.8f, 0.9f, 5.0f, true);
         adsStatsInfoList.add(adsStatsInfo);
-        adsStatsInfo = new AdsStatsInfo(66, 1232, 1f, 0.95f, 0.96f, 4f, false);
+        adsStatsInfo = new AdsStatsInfo((long)66, (long)1232, 1f, 0.95f, 0.96f, 4f, false);
         adsStatsInfoList.add(adsStatsInfo);
-        adsStatsInfo = new AdsStatsInfo(66, 1233, 0.67f, 0.5f, 0.61f, 3f, true);
+        adsStatsInfo = new AdsStatsInfo((long)66, (long)1233, 0.67f, 0.5f, 0.61f, 3f, true);
         adsStatsInfoList.add(adsStatsInfo);
-        adsStatsInfo = new AdsStatsInfo(67, 1234, 0.67f, 0.7f, 0.8f, 6.5f, true);
+        adsStatsInfo = new AdsStatsInfo((long)67, (long)1234, 0.67f, 0.7f, 0.8f, 6.5f, true);
         adsStatsInfoList.add(adsStatsInfo);
-        adsStatsInfo = new AdsStatsInfo(67, 1235, 0.33f, 0.2f, 0.4f, 3f, false);
+        adsStatsInfo = new AdsStatsInfo((long)67, (long)1235, 0.33f, 0.2f, 0.4f, 3f, false);
         adsStatsInfoList.add(adsStatsInfo);
-        adsStatsInfo = new AdsStatsInfo(67, 1236, 0.33f, 0.3f, 0.6f, 5f, false);
+        adsStatsInfo = new AdsStatsInfo((long)67, (long)1236, 0.33f, 0.3f, 0.6f, 5f, false);
         adsStatsInfoList.add(adsStatsInfo);
         AdsOptimizationImpl expected1 = new AdsOptimizationImpl(adsStatsInfoList);
 
         adsStatsInfoList = new ArrayList<AdsStatsInfo>();
-        adsStatsInfo = new AdsStatsInfo(66, 1231, 0.5f, 0.8f, 0.9f, 5.0f, true);
+        adsStatsInfo = new AdsStatsInfo((long)66, (long)1231, 0.5f, 0.8f, 0.9f, 5.0f, true);
         adsStatsInfoList.add(adsStatsInfo);
-        adsStatsInfo = new AdsStatsInfo(66, 1232, 1f, 0.95f, 0.96f, 4f, false);
+        adsStatsInfo = new AdsStatsInfo((long)66, (long)1232, 1f, 0.95f, 0.96f, 4f, false);
         adsStatsInfoList.add(adsStatsInfo);
-        adsStatsInfo = new AdsStatsInfo(66, 1233, 0.67f, 0.5f, 0.61f, 3f, true);
+        adsStatsInfo = new AdsStatsInfo((long)66, (long)1233, 0.67f, 0.5f, 0.61f, 3f, true);
         adsStatsInfoList.add(adsStatsInfo);
-        adsStatsInfo = new AdsStatsInfo(67, 1234, 0.67f, 0.7f, 0.8f, 6.5f, true);
+        adsStatsInfo = new AdsStatsInfo((long)67, (long)1234, 0.67f, 0.7f, 0.8f, 6.5f, true);
         adsStatsInfoList.add(adsStatsInfo);
         AdsOptimizationImpl expected2 = new AdsOptimizationImpl(adsStatsInfoList);
 
         adsStatsInfoList = new ArrayList<AdsStatsInfo>();
-        adsStatsInfo = new AdsStatsInfo(66, 1232, 1f, 0.95f, 0.96f, 4f, false);
+        adsStatsInfo = new AdsStatsInfo((long)66, (long)1232, 1f, 0.95f, 0.96f, 4f, false);
         adsStatsInfoList.add(adsStatsInfo);
         AdsOptimizationImpl expected3 = new AdsOptimizationImpl(adsStatsInfoList);
 
         adsStatsInfoList = new ArrayList<AdsStatsInfo>();
-        adsStatsInfo = new AdsStatsInfo(66, 1231, 0.5f, 0.8f, 0.9f, 5.0f, true);
+        adsStatsInfo = new AdsStatsInfo((long)66, (long)1231, 0.5f, 0.8f, 0.9f, 5.0f, true);
         adsStatsInfoList.add(adsStatsInfo);
-        adsStatsInfo = new AdsStatsInfo(66, 1232, 1f, 0.95f, 0.96f, 4f, false);
+        adsStatsInfo = new AdsStatsInfo((long)66, (long)1232, 1f, 0.95f, 0.96f, 4f, false);
         adsStatsInfoList.add(adsStatsInfo);
-        adsStatsInfo = new AdsStatsInfo(66, 1233, 0.67f, 0.5f, 0.61f, 3f, true);
+        adsStatsInfo = new AdsStatsInfo((long)66, (long)1233, 0.67f, 0.5f, 0.61f, 3f, true);
         adsStatsInfoList.add(adsStatsInfo);
-        adsStatsInfo = new AdsStatsInfo(67, 1234, 0.67f, 0.7f, 0.8f, 6.5f, true);
+        adsStatsInfo = new AdsStatsInfo((long)67, (long)1234, 0.67f, 0.7f, 0.8f, 6.5f, true);
         adsStatsInfoList.add(adsStatsInfo);
-        adsStatsInfo = new AdsStatsInfo(67, 1235, 0.33f, 0.2f, 0.4f, 3f, false);
+        adsStatsInfo = new AdsStatsInfo((long)67, (long)1235, 0.33f, 0.2f, 0.4f, 3f, false);
         adsStatsInfoList.add(adsStatsInfo);
-        adsStatsInfo = new AdsStatsInfo(67, 1236, 0.33f, 0.3f, 0.6f, 5f, false);
+        adsStatsInfo = new AdsStatsInfo((long)67, (long)1236, 0.33f, 0.3f, 0.6f, 5f, false);
         adsStatsInfoList.add(adsStatsInfo);
         AdsOptimizationImpl expected4 = new AdsOptimizationImpl(adsStatsInfoList);
 
         adsStatsInfoList = new ArrayList<AdsStatsInfo>();
-        adsStatsInfo = new AdsStatsInfo(66, 1231, 0.5f, 0.8f, 0.9f, 5.0f, true);
+        adsStatsInfo = new AdsStatsInfo((long)66, (long)1231, 0.5f, 0.8f, 0.9f, 5.0f, true);
         adsStatsInfoList.add(adsStatsInfo);
-        adsStatsInfo = new AdsStatsInfo(67, 1234, 0.67f, 0.7f, 0.8f, 6.5f, true);
+        adsStatsInfo = new AdsStatsInfo((long)67, (long)1234, 0.67f, 0.7f, 0.8f, 6.5f, true);
         adsStatsInfoList.add(adsStatsInfo);
-        adsStatsInfo = new AdsStatsInfo(67, 1236, 0.33f, 0.3f, 0.6f, 5f, false);
+        adsStatsInfo = new AdsStatsInfo((long)67, (long)1236, 0.33f, 0.3f, 0.6f, 5f, false);
         adsStatsInfoList.add(adsStatsInfo);
         AdsOptimizationImpl expected5 = new AdsOptimizationImpl(adsStatsInfoList);
 
@@ -137,9 +137,9 @@ public class AdsOptimizationImplTest {
         AdsOptimizationImpl expected6 = new AdsOptimizationImpl(adsStatsInfoList);
 
         adsStatsInfoList = new ArrayList<AdsStatsInfo>();
-        adsStatsInfo = new AdsStatsInfo(66, 1231, 0.5f, 0.8f, 0.9f, 5.0f, true);
+        adsStatsInfo = new AdsStatsInfo((long)66, (long)1231, 0.5f, 0.8f, 0.9f, 5.0f, true);
         adsStatsInfoList.add(adsStatsInfo);
-        adsStatsInfo = new AdsStatsInfo(67, 1234, 0.67f, 0.7f, 0.8f, 6.5f, true);
+        adsStatsInfo = new AdsStatsInfo((long)67, (long)1234, 0.67f, 0.7f, 0.8f, 6.5f, true);
         adsStatsInfoList.add(adsStatsInfo);
         AdsOptimizationImpl expected7 = new AdsOptimizationImpl(adsStatsInfoList);
 
@@ -174,50 +174,50 @@ public class AdsOptimizationImplTest {
     @DataProvider
     public static Object[][] selectTopKData() {
         List<AdsStatsInfo> adsStatsInfoList = new ArrayList<AdsStatsInfo>();
-        AdsStatsInfo adsStatsInfo = new AdsStatsInfo(66, 1232, 1f, 0.95f, 0.96f, 4f, false);
+        AdsStatsInfo adsStatsInfo = new AdsStatsInfo((long)66, (long)1232, 1f, 0.95f, 0.96f, 4f, false);
         adsStatsInfoList.add(adsStatsInfo);
-        adsStatsInfo = new AdsStatsInfo(66, 1231, 0.5f, 0.8f, 0.9f, 5.0f, true);
+        adsStatsInfo = new AdsStatsInfo((long)66, (long)1231, 0.5f, 0.8f, 0.9f, 5.0f, true);
         adsStatsInfoList.add(adsStatsInfo);
         AdsOptimizationImpl expected1 = new AdsOptimizationImpl(adsStatsInfoList);
 
         adsStatsInfoList = new ArrayList<AdsStatsInfo>();
-        adsStatsInfo = new AdsStatsInfo(66, 1232, 1f, 0.95f, 0.96f, 4f, false);
+        adsStatsInfo = new AdsStatsInfo((long)66, (long)1232, 1f, 0.95f, 0.96f, 4f, false);
         adsStatsInfoList.add(adsStatsInfo);
-        adsStatsInfo = new AdsStatsInfo(66, 1231, 0.5f, 0.8f, 0.9f, 5.0f, true);
+        adsStatsInfo = new AdsStatsInfo((long)66, (long)1231, 0.5f, 0.8f, 0.9f, 5.0f, true);
         adsStatsInfoList.add(adsStatsInfo);
-        adsStatsInfo = new AdsStatsInfo(67, 1234, 0.67f, 0.7f, 0.8f, 6.5f, true);
+        adsStatsInfo = new AdsStatsInfo((long)67, (long)1234, 0.67f, 0.7f, 0.8f, 6.5f, true);
         adsStatsInfoList.add(adsStatsInfo);
-        adsStatsInfo = new AdsStatsInfo(66, 1233, 0.67f, 0.5f, 0.61f, 3f, true);
+        adsStatsInfo = new AdsStatsInfo((long)66, (long)1233, 0.67f, 0.5f, 0.61f, 3f, true);
         adsStatsInfoList.add(adsStatsInfo);
         AdsOptimizationImpl expected2 = new AdsOptimizationImpl(adsStatsInfoList);
 
         adsStatsInfoList = new ArrayList<AdsStatsInfo>();
-        adsStatsInfo = new AdsStatsInfo(66, 1232, 1f, 0.95f, 0.96f, 4f, false);
+        adsStatsInfo = new AdsStatsInfo((long)66, (long)1232, 1f, 0.95f, 0.96f, 4f, false);
         adsStatsInfoList.add(adsStatsInfo);
-        adsStatsInfo = new AdsStatsInfo(66, 1231, 0.5f, 0.8f, 0.9f, 5.0f, true);
+        adsStatsInfo = new AdsStatsInfo((long)66, (long)1231, 0.5f, 0.8f, 0.9f, 5.0f, true);
         adsStatsInfoList.add(adsStatsInfo);
-        adsStatsInfo = new AdsStatsInfo(67, 1234, 0.67f, 0.7f, 0.8f, 6.5f, true);
+        adsStatsInfo = new AdsStatsInfo((long)67, (long)1234, 0.67f, 0.7f, 0.8f, 6.5f, true);
         adsStatsInfoList.add(adsStatsInfo);
-        adsStatsInfo = new AdsStatsInfo(66, 1233, 0.67f, 0.5f, 0.61f, 3f, true);
+        adsStatsInfo = new AdsStatsInfo((long)66, (long)1233, 0.67f, 0.5f, 0.61f, 3f, true);
         adsStatsInfoList.add(adsStatsInfo);
-        adsStatsInfo = new AdsStatsInfo(67, 1236, 0.33f, 0.3f, 0.6f, 5f, false);
+        adsStatsInfo = new AdsStatsInfo((long)67, (long)1236, 0.33f, 0.3f, 0.6f, 5f, false);
         adsStatsInfoList.add(adsStatsInfo);
-        adsStatsInfo = new AdsStatsInfo(67, 1235, 0.33f, 0.2f, 0.4f, 3f, false);
+        adsStatsInfo = new AdsStatsInfo((long)67, (long)1235, 0.33f, 0.2f, 0.4f, 3f, false);
         adsStatsInfoList.add(adsStatsInfo);
         AdsOptimizationImpl expected3 = new AdsOptimizationImpl(adsStatsInfoList);
 
         adsStatsInfoList = new ArrayList<AdsStatsInfo>();
-        adsStatsInfo = new AdsStatsInfo(66, 1232, 1f, 0.95f, 0.96f, 4f, false);
+        adsStatsInfo = new AdsStatsInfo((long)66, (long)1232, 1f, 0.95f, 0.96f, 4f, false);
         adsStatsInfoList.add(adsStatsInfo);
-        adsStatsInfo = new AdsStatsInfo(66, 1231, 0.5f, 0.8f, 0.9f, 5.0f, true);
+        adsStatsInfo = new AdsStatsInfo((long)66, (long)1231, 0.5f, 0.8f, 0.9f, 5.0f, true);
         adsStatsInfoList.add(adsStatsInfo);
-        adsStatsInfo = new AdsStatsInfo(67, 1234, 0.67f, 0.7f, 0.8f, 6.5f, true);
+        adsStatsInfo = new AdsStatsInfo((long)67, (long)1234, 0.67f, 0.7f, 0.8f, 6.5f, true);
         adsStatsInfoList.add(adsStatsInfo);
-        adsStatsInfo = new AdsStatsInfo(66, 1233, 0.67f, 0.5f, 0.61f, 3f, true);
+        adsStatsInfo = new AdsStatsInfo((long)66, (long)1233, 0.67f, 0.5f, 0.61f, 3f, true);
         adsStatsInfoList.add(adsStatsInfo);
-        adsStatsInfo = new AdsStatsInfo(67, 1236, 0.33f, 0.3f, 0.6f, 5f, false);
+        adsStatsInfo = new AdsStatsInfo((long)67, (long)1236, 0.33f, 0.3f, 0.6f, 5f, false);
         adsStatsInfoList.add(adsStatsInfo);
-        adsStatsInfo = new AdsStatsInfo(67, 1235, 0.33f, 0.2f, 0.4f, 3f, false);
+        adsStatsInfo = new AdsStatsInfo((long)67, (long)1235, 0.33f, 0.2f, 0.4f, 3f, false);
         adsStatsInfoList.add(adsStatsInfo);
         AdsOptimizationImpl expected4 = new AdsOptimizationImpl(adsStatsInfoList);
 
@@ -250,48 +250,48 @@ public class AdsOptimizationImplTest {
         ArrayList<AdsStatsInfo> adsStatsInfoList = new ArrayList<AdsStatsInfo>();
         // AdsStatsInfo(int campaignId, int adsId, float relevanceScore, float
         // qualityScore, float rankScore, float cpc, boolean isMainline)
-        AdsStatsInfo adsStatsInfo = new AdsStatsInfo(66, 1231, 0.5f, 0.8f, 0.9f,
+        AdsStatsInfo adsStatsInfo = new AdsStatsInfo((long)66, (long)1231, 0.5f, 0.8f, 0.9f,
                 0.95f / 0.8f * 4.5f, true); // cpc ~5.34
         adsStatsInfoList.add(adsStatsInfo);
-        adsStatsInfo = new AdsStatsInfo(66, 1232, 1f, 0.95f, 0.96f, 0.5f / 0.95f * 4f, true);// 2.11
+        adsStatsInfo = new AdsStatsInfo((long)66, (long)1232, 1f, 0.95f, 0.96f, 0.5f / 0.95f * 4f, true);// 2.11
         adsStatsInfoList.add(adsStatsInfo);
-        adsStatsInfo = new AdsStatsInfo(66, 1233, 0.67f, 0.5f, 0.61f, 0.7f / 0.5f * 7.5f, true);// 10.5
+        adsStatsInfo = new AdsStatsInfo((long)66, (long)1233, 0.67f, 0.5f, 0.61f, 0.7f / 0.5f * 7.5f, true);// 10.5
         adsStatsInfoList.add(adsStatsInfo);
-        adsStatsInfo = new AdsStatsInfo(67, 1234, 0.67f, 0.7f, 0.8f, 0.2f / 0.7f * 3.5f, true);// 1
+        adsStatsInfo = new AdsStatsInfo((long)67, (long)1234, 0.67f, 0.7f, 0.8f, 0.2f / 0.7f * 3.5f, true);// 1
         adsStatsInfoList.add(adsStatsInfo);
-        adsStatsInfo = new AdsStatsInfo(67, 1235, 0.33f, 0.2f, 0.4f, 0.3f / 0.2f * 5.5f, true);// 8.25
+        adsStatsInfo = new AdsStatsInfo((long)67, (long)1235, 0.33f, 0.2f, 0.4f, 0.3f / 0.2f * 5.5f, true);// 8.25
         adsStatsInfoList.add(adsStatsInfo);
         AdsOptimizationImpl expected1 = new AdsOptimizationImpl(adsStatsInfoList);
 
         adsStatsInfoList = new ArrayList<AdsStatsInfo>();
         // AdsStatsInfo(int campaignId, int adsId, float relevanceScore, float
         // qualityScore, float rankScore, float cpc, boolean isMainline)
-        adsStatsInfo = new AdsStatsInfo(66, 1231, 0.5f, 0.8f, 0.9f, 0.95f / 0.8f * 4.5f, true); // cpc
+        adsStatsInfo = new AdsStatsInfo((long)66, (long)1231, 0.5f, 0.8f, 0.9f, 0.95f / 0.8f * 4.5f, true); // cpc
         // ~5.34
         adsStatsInfoList.add(adsStatsInfo);
-        adsStatsInfo = new AdsStatsInfo(66, 1232, 1f, 0.95f, 0.96f, 0.5f / 0.95f * 4f, false);// 2.11
+        adsStatsInfo = new AdsStatsInfo((long)66, (long)1232, 1f, 0.95f, 0.96f, 0.5f / 0.95f * 4f, false);// 2.11
         adsStatsInfoList.add(adsStatsInfo);
-        adsStatsInfo = new AdsStatsInfo(66, 1233, 0.67f, 0.5f, 0.61f, 0.7f / 0.5f * 7.5f, true);// 10.5
+        adsStatsInfo = new AdsStatsInfo((long)66, (long)1233, 0.67f, 0.5f, 0.61f, 0.7f / 0.5f * 7.5f, true);// 10.5
         adsStatsInfoList.add(adsStatsInfo);
-        adsStatsInfo = new AdsStatsInfo(67, 1234, 0.67f, 0.7f, 0.8f, 0.2f / 0.7f * 3.5f, false);// 1
+        adsStatsInfo = new AdsStatsInfo((long)67, (long)1234, 0.67f, 0.7f, 0.8f, 0.2f / 0.7f * 3.5f, false);// 1
         adsStatsInfoList.add(adsStatsInfo);
-        adsStatsInfo = new AdsStatsInfo(67, 1235, 0.33f, 0.2f, 0.4f, 0.3f / 0.2f * 5.5f, true);// 8.25
+        adsStatsInfo = new AdsStatsInfo((long)67, (long)1235, 0.33f, 0.2f, 0.4f, 0.3f / 0.2f * 5.5f, true);// 8.25
         adsStatsInfoList.add(adsStatsInfo);
         AdsOptimizationImpl expected2 = new AdsOptimizationImpl(adsStatsInfoList);
 
         adsStatsInfoList = new ArrayList<AdsStatsInfo>();
         // AdsStatsInfo(int campaignId, int adsId, float relevanceScore, float
         // qualityScore, float rankScore, float cpc, boolean isMainline)
-        adsStatsInfo = new AdsStatsInfo(66, 1231, 0.5f, 0.8f, 0.9f, 0.95f / 0.8f * 4.5f, false); // cpc
+        adsStatsInfo = new AdsStatsInfo((long)66, (long)1231, 0.5f, 0.8f, 0.9f, 0.95f / 0.8f * 4.5f, false); // cpc
         // ~5.34
         adsStatsInfoList.add(adsStatsInfo);
-        adsStatsInfo = new AdsStatsInfo(66, 1232, 1f, 0.95f, 0.96f, 0.5f / 0.95f * 4f, false);// 2.11
+        adsStatsInfo = new AdsStatsInfo((long)66, (long)1232, 1f, 0.95f, 0.96f, 0.5f / 0.95f * 4f, false);// 2.11
         adsStatsInfoList.add(adsStatsInfo);
-        adsStatsInfo = new AdsStatsInfo(66, 1233, 0.67f, 0.5f, 0.61f, 0.7f / 0.5f * 7.5f, false);// 10.5
+        adsStatsInfo = new AdsStatsInfo((long)66, (long)1233, 0.67f, 0.5f, 0.61f, 0.7f / 0.5f * 7.5f, false);// 10.5
         adsStatsInfoList.add(adsStatsInfo);
-        adsStatsInfo = new AdsStatsInfo(67, 1234, 0.67f, 0.7f, 0.8f, 0.2f / 0.7f * 3.5f, false);// 1
+        adsStatsInfo = new AdsStatsInfo((long)67, (long)1234, 0.67f, 0.7f, 0.8f, 0.2f / 0.7f * 3.5f, false);// 1
         adsStatsInfoList.add(adsStatsInfo);
-        adsStatsInfo = new AdsStatsInfo(67, 1235, 0.33f, 0.2f, 0.4f, 0.3f / 0.2f * 5.5f, false);// 8.25
+        adsStatsInfo = new AdsStatsInfo((long)67, (long)1235, 0.33f, 0.2f, 0.4f, 0.3f / 0.2f * 5.5f, false);// 8.25
         adsStatsInfoList.add(adsStatsInfo);
         AdsOptimizationImpl expected3 = new AdsOptimizationImpl(adsStatsInfoList);
 
@@ -304,7 +304,7 @@ public class AdsOptimizationImplTest {
         float mainlineReservePrice = 3;
         inventory = Help.ReturnInventoryWithSingleItem();
         List<AdsStatsInfo> adsList = new ArrayList<AdsStatsInfo>();
-        AdsStatsInfo adsStatsInfo = new AdsStatsInfo(66, 1231, 0.5f, 0.8f, 0.9f, 5.0f, true);
+        AdsStatsInfo adsStatsInfo = new AdsStatsInfo((long)66, (long)1231, 0.5f, 0.8f, 0.9f, 5.0f, true);
         adsList.add(adsStatsInfo);
         AdsOptimization expected = new AdsOptimizationImpl(adsList);
         AdsOptimization result = ads.adsPricingAndAllocation(inventory, mainlineReservePrice);
@@ -317,7 +317,7 @@ public class AdsOptimizationImplTest {
         float mainlineReservePrice = 6;
         inventory = Help.ReturnInventoryWithSingleItem();
         List<AdsStatsInfo> adsList = new ArrayList<AdsStatsInfo>();
-        AdsStatsInfo adsStatsInfo = new AdsStatsInfo(66, 1231, 0.5f, 0.8f, 0.9f, 5.0f, false);
+        AdsStatsInfo adsStatsInfo = new AdsStatsInfo((long)66, (long)1231, 0.5f, 0.8f, 0.9f, 5.0f, false);
         adsList.add(adsStatsInfo);
         AdsOptimization expected = new AdsOptimizationImpl(adsList);
         AdsOptimization result = ads.adsPricingAndAllocation(inventory, mainlineReservePrice);
@@ -333,9 +333,9 @@ public class AdsOptimizationImplTest {
         AdsOptimization result = ads.deDup();
 
         List<AdsStatsInfo> adsStatsInfoList = new ArrayList<AdsStatsInfo>();
-        AdsStatsInfo adsStatsInfo = new AdsStatsInfo(66, 1231, 0.5f, 0.8f, 0.9f, 5.0f, true);
+        AdsStatsInfo adsStatsInfo = new AdsStatsInfo((long)66, (long)1231, 0.5f, 0.8f, 0.9f, 5.0f, true);
         adsStatsInfoList.add(adsStatsInfo);
-        adsStatsInfo = new AdsStatsInfo(67, 1234, 0.67f, 0.7f, 0.8f, 6.5f, true);
+        adsStatsInfo = new AdsStatsInfo((long)67, (long)1234, 0.67f, 0.7f, 0.8f, 6.5f, true);
         adsStatsInfoList.add(adsStatsInfo);
         AdsOptimizationImpl expected = new AdsOptimizationImpl(adsStatsInfoList);
 

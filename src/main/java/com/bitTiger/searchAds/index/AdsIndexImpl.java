@@ -19,7 +19,7 @@ import com.bitTiger.searchAds.lock.BudgetLock;
 import com.google.gson.Gson;
 import com.google.gson.JsonIOException;
 import com.google.gson.JsonSyntaxException;
-
+import com.bitTiger.searchAds.datastore.*;
 import com.bitTiger.searchAds.lock.BudgetLock;
 
 public class AdsIndexImpl implements AdsIndex {
@@ -53,26 +53,26 @@ public class AdsIndexImpl implements AdsIndex {
         List<AdsStatsInfo> adsStatsInfoList = new ArrayList<AdsStatsInfo>();
         if (keyWords != null) {
             Iterator<String> keywordsIterator = keyWords.iterator();
-            Map<Integer, Integer> hitCounts = new HashMap<Integer, Integer>();
+            Map<Long, Integer> hitCounts = new HashMap<Long, Integer>();
             while (keywordsIterator.hasNext()) {
                 String keyWord = keywordsIterator.next();
-                List<Integer> matchedAdsIds = _adsInvertedIndex.retrieveIndex(keyWord.toLowerCase());
+                List<Long> matchedAdsIds = _adsInvertedIndex.retrieveIndex(keyWord.toLowerCase());
                 if (matchedAdsIds != null) {
-                    Iterator<Integer> matchedAdsIdsIterator = matchedAdsIds.iterator();
+                    Iterator<Long> matchedAdsIdsIterator = matchedAdsIds.iterator();
                     while (matchedAdsIdsIterator.hasNext()) {
-                        Integer matchedAdsId = matchedAdsIdsIterator.next();
+                        long matchedAdsId = matchedAdsIdsIterator.next();
                         hitCounts.put(matchedAdsId, hitCounts.get(matchedAdsId) == null ? 1 : hitCounts.get(matchedAdsId) + 1);
                     }
                 }
             }
-            Iterator<Map.Entry<Integer, Integer>> hitCountsIterator = hitCounts.entrySet().iterator();
+            Iterator<Map.Entry<Long, Integer>> hitCountsIterator = hitCounts.entrySet().iterator();
             while (hitCountsIterator.hasNext()) {
-                Map.Entry<Integer, Integer> hitCountsEntry = hitCountsIterator.next();
-                Integer adsId = hitCountsEntry.getKey();
+                Map.Entry<Long, Integer> hitCountsEntry = hitCountsIterator.next();
+                long adsId = hitCountsEntry.getKey();
                 Integer hitCount = hitCountsEntry.getValue();
                 AdsInfo adsInfo = _adsInventory.findAds(adsId);
                 if (adsInfo != null) {
-                    int campaignId = adsInfo.getCampaignId();
+                    long campaignId = adsInfo.getCampaignId();
                     CampaignInfo campaignInfo = _campaignInventory.findCampaign(campaignId);
                     if (campaignInfo.getBudget() > 0) {
                         BudgetLock.acquireReadLock();
@@ -112,7 +112,7 @@ public class AdsIndexImpl implements AdsIndex {
                     if(adInfo != null)
                     {
                         List<String> keyWords = adInfo.getAdsKeyWords();
-                        int adInfoId = adInfo.getAdsId();
+                        long adInfoId = adInfo.getAdsId();
                         for(String keyWord : keyWords)
                         {
                             _adsInvertedIndex.insertIndex(keyWord.toLowerCase(), adInfoId);
@@ -172,25 +172,41 @@ public class AdsIndexImpl implements AdsIndex {
 
     private Ads getStaticAds() {
         List<AdsInfo> _ads = new ArrayList<AdsInfo>();
-        _ads.add(new AdsInfo(1231, new ArrayList<String>(){{add("basketball");add("kobe");add("shoe");add("nike");}}, 0.37f, 6.0f, 66));
-        _ads.add(new AdsInfo(1232, new ArrayList<String>(){{add("running");add("shoe");add("nike");}}, 0.63f, 4.5f, 66));
-        _ads.add(new AdsInfo(1233, new ArrayList<String>(){{add("soccer");add("shoe");add("nike");}}, 0.23f, 4.0f, 66));
-        _ads.add(new AdsInfo(1234, new ArrayList<String>(){{add("running");add("shoe");add("adidas");}}, 0.53f, 7.5f, 67));
-        _ads.add(new AdsInfo(1235, new ArrayList<String>(){{add("soccer");add("shoe");add("adidas");}}, 0.19f, 3.5f, 67));
-        _ads.add(new AdsInfo(1236, new ArrayList<String>(){{add("basketball");add("shoe");add("adidas");}}, 0.29f, 5.5f, 67));
+        List<AdsData> adsDataList = AdsDataOperation.getAllAdsData();
+        if(adsDataList != null)
+        {
+        	for(AdsData adsData : adsDataList)
+        	{
+        		_ads.add(new AdsInfo(adsData));
+        	}
+        }
+//        _ads.add(new AdsInfo((long)1231, new ArrayList<String>(){{add("basketball");add("kobe");add("shoe");add("nike");}}, 0.37f, 6.0f, (long)66));
+//        _ads.add(new AdsInfo((long)1232, new ArrayList<String>(){{add("running");add("shoe");add("nike");}}, 0.63f, 4.5f, (long)66));
+//        _ads.add(new AdsInfo((long)1233, new ArrayList<String>(){{add("soccer");add("shoe");add("nike");}}, 0.23f, 4.0f, (long)66));
+//        _ads.add(new AdsInfo((long)1234, new ArrayList<String>(){{add("running");add("shoe");add("adidas");}}, 0.53f, 7.5f, (long)67));
+//        _ads.add(new AdsInfo((long)1235, new ArrayList<String>(){{add("soccer");add("shoe");add("adidas");}}, 0.19f, 3.5f, (long)67));
+//        _ads.add(new AdsInfo((long)1236, new ArrayList<String>(){{add("basketball");add("shoe");add("adidas");}}, 0.29f, 5.5f, (long)67));
         return new Ads(_ads);
     }
 
     private Campaigns getStaticCamps() {
         List<CampaignInfo> _campaigns = new  ArrayList<CampaignInfo>();
-        _campaigns.add(new CampaignInfo(66, 1500f));
-        _campaigns.add(new CampaignInfo(67, 2800f));
-        _campaigns.add(new CampaignInfo(68, 900f));
+        List<CampaignData> campaignDataList = CampaignDataOperation.getAllCampaignData();
+        if(campaignDataList != null)
+        {
+        	for(CampaignData campaignData : campaignDataList)
+        	{
+        		_campaigns.add(new CampaignInfo(campaignData));
+        	}
+        }
+//        _campaigns.add(new CampaignInfo((long)66, 1500f));
+//        _campaigns.add(new CampaignInfo((long)67, 2800f));
+//        _campaigns.add(new CampaignInfo((long)68, 900f));
         return new Campaigns(_campaigns);
     }
 
     @Override
-    public Map<String, List<Integer>> ShowInvertedIndex()
+    public Map<String, List<Long>> ShowInvertedIndex()
     {
         return _adsInvertedIndex.GetAdsInvertedIndex();
     }

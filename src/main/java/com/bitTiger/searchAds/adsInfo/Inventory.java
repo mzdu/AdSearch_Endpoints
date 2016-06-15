@@ -14,19 +14,19 @@ public class Inventory {
         this._campaignInventory = _campaignInventory;
     }
 
-    public Map<Integer, AdsInfo>  showAds() {
+    public Map<Long, AdsInfo>  showAds() {
         return _adsInventory.GetAdsInfoInventory();
     }
 
-    public Map<Integer, CampaignInfo> showCamps() {
+    public Map<Long, CampaignInfo> showCamps() {
         return _campaignInventory.GetCampaignInventory();
     }
 
-    public AdsInfo findAds(Integer adsId) {
+    public AdsInfo findAds(Long adsId) {
         return _adsInventory.findAds(adsId);
     }
 
-    public CampaignInfo findCampaign(Integer campaignId) {
+    public CampaignInfo findCampaign(Long campaignId) {
         return _campaignInventory.findCampaign(campaignId);
     }
 

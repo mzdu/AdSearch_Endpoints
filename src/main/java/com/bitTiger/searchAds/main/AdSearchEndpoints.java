@@ -87,21 +87,21 @@ public class AdSearchEndpoints {
     //http://localhost:8080/_ah/api/adsearchendpoints/v1/showAds
     @ApiMethod(name = "showAds", path = "showAds",
             httpMethod = HttpMethod.GET)
-    public Map<Integer, AdsInfo> showAds() {
+    public Map<Long, AdsInfo> showAds() {
         return INVENTORY.showAds();
     }
 
     //http://localhost:8080/_ah/api/adsearchendpoints/v1/showCamps
     @ApiMethod(name = "showCamps", path = "showCamps",
             httpMethod = HttpMethod.GET)
-    public Map<Integer, CampaignInfo> showCamps() {
+    public Map<Long, CampaignInfo> showCamps() {
         return INVENTORY.showCamps();
     }
 
     //http://localhost:8080/_ah/api/adsearchendpoints/v1/showIndex
     @ApiMethod(name = "showIndex", path = "showIndex",
             httpMethod = HttpMethod.GET)
-    public Map<String, List<Integer>> showIndex() {
+    public Map<String, List<Long>> showIndex() {
         return ADS_INDEX.ShowInvertedIndex();
     }
     

@@ -13,6 +13,6 @@ public interface AdsIndex {
 
   List<AdsStatsInfo> indexMatch(List<String> keyWords);
  
-  Map<String, List<Integer>> ShowInvertedIndex();
+  Map<String, List<Long>> ShowInvertedIndex();
 
 }
